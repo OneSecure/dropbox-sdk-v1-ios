@@ -49,6 +49,9 @@ extern NSString *kDBProtocolHTTPS;
 @property (nonatomic, readonly) NSArray *userIds;
 @property (nonatomic, assign) id<DBSessionDelegate> delegate;
 
+@property (nonatomic, strong) UIImage *shortcutIcon;
+@property (nonatomic, strong) void (^shortcutMethod)(id targetWebView, UIViewController *forViewController, id sender);
+
 @end
 
 

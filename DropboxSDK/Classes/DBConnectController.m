@@ -13,9 +13,6 @@
 #import "DBLog.h"
 #import "DBRequest.h"
 #import "DBSession+iOS.h"
-#ifdef __IPHONE_8_0
-#import "OnePasswordExtension.h"
-#endif
 
 #include "TargetConditionals.h"
 
@@ -89,12 +86,16 @@ extern id<DBNetworkRequestDelegate> dbNetworkRequestDelegate;
         [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel
                                                       target:self
                                                       action:@selector(cancel)];
-        UIBarButtonItem *fillPassword =
-        [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"mainicon"]
-                                         style:UIBarButtonItemStylePlain
-                                        target:self
-                                        action:@selector(fillPassword:)];
-        self.navigationItem.rightBarButtonItems = @[cancel, fillPassword];
+        NSArray *a = @[cancel];
+        if ([DBSession sharedSession].shortcutIcon) {
+            UIBarButtonItem *fillPassword =
+            [[UIBarButtonItem alloc] initWithImage:[DBSession sharedSession].shortcutIcon
+                                             style:UIBarButtonItemStylePlain
+                                            target:self
+                                            action:@selector(fillPassword:)];
+            a = @[cancel, fillPassword];
+        }
+        self.navigationItem.rightBarButtonItems = a;
 
 #if TARGET_OS_IOS && defined(__IPHONE_7_0) // Temporary until we can switch to XCode 5 for release.
         if (NSFoundationVersionNumber > NSFoundationVersionNumber_iOS_6_1) {
@@ -325,22 +326,11 @@ extern id<DBNetworkRequestDelegate> dbNetworkRequestDelegate;
 }
 
 - (void) fillPassword:(id)sender {
-#ifdef __IPHONE_8_0
-    if ([UIDevice currentDevice].systemVersion.floatValue < 7.99) {
-        return;
+    if ([UIDevice currentDevice].systemVersion.floatValue > 7.99) {
+        if ([DBSession sharedSession].shortcutMethod) {
+            [DBSession sharedSession].shortcutMethod(self.webView, self, sender);
+        }
     }
-    OnePasswordExtension *sharedExtension = [OnePasswordExtension sharedExtension];
-    [sharedExtension fillItemIntoWebView:self.webView
-                       forViewController:self
-                                  sender:sender
-                          showOnlyLogins:NO
-                              completion:^(BOOL success, NSError *error)
-     {
-         if (!success) {
-             NSLog(@"Failed to fill into webview: <%@>", error);
-         }
-     }];
-#endif
 }
 
 - (void)dismissAnimated:(BOOL)animated {
