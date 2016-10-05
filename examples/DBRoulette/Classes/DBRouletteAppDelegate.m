@@ -29,9 +29,9 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
     
 	// Set these variables before launching the app
-    NSString* appKey = @"hizw69j2t3adyh0";
-	NSString* appSecret = @"oivngs2ngc7zkq2";
-	NSString *root = kDBRootDropbox; // Should be set to either kDBRootAppFolder or kDBRootDropbox
+    NSString* appKey = @"xi60371p6ix8m0z";
+	NSString* appSecret = @"vi5qigmvfzwnpm1";
+	NSString *root = kDBRootAppFolder; // Should be set to either kDBRootAppFolder or kDBRootDropbox
 	// You can determine if you have App folder access or Full Dropbox along with your consumer key/secret
 	// from https://dropbox.com/developers/apps 
 	
