@@ -1,31 +1,31 @@
 //
-//  DBKeychain.m
+//  DBKeychainV1.m
 //  DropboxSDK
 //
 //  Created by Brian Smith on 4/5/12.
 //  Copyright (c) 2012 Dropbox, Inc. All rights reserved.
 //
 
-#import "DBKeychain.h"
+#import "DBKeychainV1.h"
 
 #import "DBLog.h"
 
-static NSDictionary *kDBKeychainDict;
+static NSDictionary *kDBKeychainV1Dict;
 
 
-@implementation DBKeychain
+@implementation DBKeychainV1
 
 + (void)initialize {
-	if ([self class] != [DBKeychain class]) return;
+	if ([self class] != [DBKeychainV1 class]) return;
 	NSString *keychainId = [NSString stringWithFormat:@"%@.dropbox.auth", [[NSBundle mainBundle] bundleIdentifier]];
-	kDBKeychainDict = [[NSDictionary alloc] initWithObjectsAndKeys:
+	kDBKeychainV1Dict = [[NSDictionary alloc] initWithObjectsAndKeys:
 					   (__bridge id)kSecClassGenericPassword, (__bridge id)kSecClass,
 					   keychainId, (__bridge id)kSecAttrService,
 					   nil];
 }
 
 + (NSDictionary *)credentials {
-	NSMutableDictionary *searchDict = [NSMutableDictionary dictionaryWithDictionary:kDBKeychainDict];
+	NSMutableDictionary *searchDict = [NSMutableDictionary dictionaryWithDictionary:kDBKeychainV1Dict];
 	[searchDict setObject:(__bridge id)kSecMatchLimitOne forKey:(__bridge id)kSecMatchLimit];
 	[searchDict setObject:(id)kCFBooleanTrue forKey:(__bridge id)kSecReturnAttributes];
 	[searchDict setObject:(id)kCFBooleanTrue forKey:(__bridge id)kSecReturnData];
@@ -58,7 +58,7 @@ static NSDictionary *kDBKeychainDict;
 + (void)setCredentials:(NSDictionary *)credentials {
 	NSData *credentialData = [NSKeyedArchiver archivedDataWithRootObject:credentials];
 
-	NSMutableDictionary *attrDict = [NSMutableDictionary dictionaryWithDictionary:kDBKeychainDict];
+	NSMutableDictionary *attrDict = [NSMutableDictionary dictionaryWithDictionary:kDBKeychainV1Dict];
 	[attrDict setObject:credentialData forKey:(__bridge id)kSecValueData];
 
 	NSArray *version = [[[UIDevice currentDevice] systemVersion] componentsSeparatedByString:@"."];
@@ -70,7 +70,7 @@ static NSDictionary *kDBKeychainDict;
 
 	if ([self credentials]) {
 		[attrDict removeObjectForKey:(__bridge id)kSecClass];
-		status = SecItemUpdate((__bridge CFDictionaryRef)kDBKeychainDict, (__bridge CFDictionaryRef)attrDict);
+		status = SecItemUpdate((__bridge CFDictionaryRef)kDBKeychainV1Dict, (__bridge CFDictionaryRef)attrDict);
 	} else {
 		status = SecItemAdd((__bridge CFDictionaryRef)attrDict, NULL);
 	}
@@ -81,7 +81,7 @@ static NSDictionary *kDBKeychainDict;
 }
 
 + (void)deleteCredentials {
-	OSStatus status = SecItemDelete((__bridge CFDictionaryRef)kDBKeychainDict);
+	OSStatus status = SecItemDelete((__bridge CFDictionaryRef)kDBKeychainV1Dict);
 
 	if (status != noErr) {
 		DBLogWarning(@"DropboxSDK: error deleting credentials (%i)", (int32_t)status);

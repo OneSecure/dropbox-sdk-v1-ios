@@ -1,5 +1,5 @@
 //
-//  DBKeychain.h
+//  DBKeychainV1.h
 //  DropboxSDK
 //
 //  Created by Brian Smith on 4/5/12.
@@ -7,7 +7,7 @@
 //
 #import <Foundation/Foundation.h>
 
-@interface DBKeychain : NSObject
+@interface DBKeychainV1 : NSObject
 
 + (NSDictionary *)credentials;
 

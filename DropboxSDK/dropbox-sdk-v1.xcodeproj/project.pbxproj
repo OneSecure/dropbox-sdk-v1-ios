@@ -11,7 +11,7 @@
 		A27D9C381DA4F2DA00AE686F /* DBConnectController.m in Sources */ = {isa = PBXBuildFile; fileRef = A27D9BD51DA4F2DA00AE686F /* DBConnectController.m */; };
 		A27D9C391DA4F2DA00AE686F /* DBDeltaEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = A27D9BD61DA4F2DA00AE686F /* DBDeltaEntry.m */; };
 		A27D9C3A1DA4F2DA00AE686F /* DBError.m in Sources */ = {isa = PBXBuildFile; fileRef = A27D9BD71DA4F2DA00AE686F /* DBError.m */; };
-		A27D9C3B1DA4F2DA00AE686F /* DBKeychain-iOS.m in Sources */ = {isa = PBXBuildFile; fileRef = A27D9BD81DA4F2DA00AE686F /* DBKeychain-iOS.m */; };
+		A27D9C3B1DA4F2DA00AE686F /* DBKeychainV1-iOS.m in Sources */ = {isa = PBXBuildFile; fileRef = A27D9BD81DA4F2DA00AE686F /* DBKeychainV1-iOS.m */; };
 		A27D9C3D1DA4F2DA00AE686F /* DBLog.m in Sources */ = {isa = PBXBuildFile; fileRef = A27D9BDA1DA4F2DA00AE686F /* DBLog.m */; };
 		A27D9C3E1DA4F2DA00AE686F /* DBMetadata.m in Sources */ = {isa = PBXBuildFile; fileRef = A27D9BDB1DA4F2DA00AE686F /* DBMetadata.m */; };
 		A27D9C3F1DA4F2DA00AE686F /* DBQuota.m in Sources */ = {isa = PBXBuildFile; fileRef = A27D9BDC1DA4F2DA00AE686F /* DBQuota.m */; };
@@ -63,7 +63,7 @@
 		A27D9BD51DA4F2DA00AE686F /* DBConnectController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBConnectController.m; sourceTree = "<group>"; };
 		A27D9BD61DA4F2DA00AE686F /* DBDeltaEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBDeltaEntry.m; sourceTree = "<group>"; };
 		A27D9BD71DA4F2DA00AE686F /* DBError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBError.m; sourceTree = "<group>"; };
-		A27D9BD81DA4F2DA00AE686F /* DBKeychain-iOS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DBKeychain-iOS.m"; sourceTree = "<group>"; };
+		A27D9BD81DA4F2DA00AE686F /* DBKeychainV1-iOS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DBKeychainV1-iOS.m"; sourceTree = "<group>"; };
 		A27D9BDA1DA4F2DA00AE686F /* DBLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBLog.m; sourceTree = "<group>"; };
 		A27D9BDB1DA4F2DA00AE686F /* DBMetadata.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBMetadata.m; sourceTree = "<group>"; };
 		A27D9BDC1DA4F2DA00AE686F /* DBQuota.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBQuota.m; sourceTree = "<group>"; };
@@ -81,7 +81,7 @@
 		A27D9BEC1DA4F2DA00AE686F /* DBJsonBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBJsonBase.h; sourceTree = "<group>"; };
 		A27D9BED1DA4F2DA00AE686F /* DBJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBJsonParser.h; sourceTree = "<group>"; };
 		A27D9BEE1DA4F2DA00AE686F /* DBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBJsonWriter.h; sourceTree = "<group>"; };
-		A27D9BEF1DA4F2DA00AE686F /* DBKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBKeychain.h; sourceTree = "<group>"; };
+		A27D9BEF1DA4F2DA00AE686F /* DBKeychainV1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBKeychainV1.h; sourceTree = "<group>"; };
 		A27D9BF01DA4F2DA00AE686F /* DBLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBLog.h; sourceTree = "<group>"; };
 		A27D9BF11DA4F2DA00AE686F /* DBMetadata.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBMetadata.h; sourceTree = "<group>"; };
 		A27D9BF21DA4F2DA00AE686F /* DBQuota.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBQuota.h; sourceTree = "<group>"; };
@@ -170,7 +170,7 @@
 				A27D9BD51DA4F2DA00AE686F /* DBConnectController.m */,
 				A27D9BD61DA4F2DA00AE686F /* DBDeltaEntry.m */,
 				A27D9BD71DA4F2DA00AE686F /* DBError.m */,
-				A27D9BD81DA4F2DA00AE686F /* DBKeychain-iOS.m */,
+				A27D9BD81DA4F2DA00AE686F /* DBKeychainV1-iOS.m */,
 				A27D9BDA1DA4F2DA00AE686F /* DBLog.m */,
 				A27D9BDB1DA4F2DA00AE686F /* DBMetadata.m */,
 				A27D9BDC1DA4F2DA00AE686F /* DBQuota.m */,
@@ -201,7 +201,7 @@
 				A27D9BEC1DA4F2DA00AE686F /* DBJsonBase.h */,
 				A27D9BED1DA4F2DA00AE686F /* DBJsonParser.h */,
 				A27D9BEE1DA4F2DA00AE686F /* DBJsonWriter.h */,
-				A27D9BEF1DA4F2DA00AE686F /* DBKeychain.h */,
+				A27D9BEF1DA4F2DA00AE686F /* DBKeychainV1.h */,
 				A27D9BF01DA4F2DA00AE686F /* DBLog.h */,
 				A27D9BF11DA4F2DA00AE686F /* DBMetadata.h */,
 				A27D9BF21DA4F2DA00AE686F /* DBQuota.h */,
@@ -396,7 +396,7 @@
 				A27D9C481DA4F2DA00AE686F /* DBJsonWriter.m in Sources */,
 				A27D9C4A1DA4F2DA00AE686F /* NSString+DBJSON.m in Sources */,
 				A27D9C501DA4F2DA00AE686F /* MPOAuthConnection.m in Sources */,
-				A27D9C3B1DA4F2DA00AE686F /* DBKeychain-iOS.m in Sources */,
+				A27D9C3B1DA4F2DA00AE686F /* DBKeychainV1-iOS.m in Sources */,
 				A27D9C461DA4F2DA00AE686F /* DBJsonBase.m in Sources */,
 				A27D9C381DA4F2DA00AE686F /* DBConnectController.m in Sources */,
 				A27D9C4E1DA4F2DA00AE686F /* MPOAuthAuthenticationMethod.m in Sources */,
